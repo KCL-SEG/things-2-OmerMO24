@@ -9,7 +9,7 @@ class ThingForm(forms.ModelForm):
         fields = ['name', 'description', 'quantity']  # Exclude 'created_at'
 
     # Customize form fields
-    description = forms.CharField(widget=forms.Textarea)
+    description = forms.CharField(widget=forms.Textarea(attrs={'maxlength':120}))
     quantity = forms.IntegerField(widget=forms.NumberInput)
 
     def clean_quantity(self):
